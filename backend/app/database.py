@@ -1,5 +1,9 @@
 import os
+# pyrefly: ignore [missing-import]
 from sqlalchemy import create_engine
+# pyrefly: ignore [missing-import]
+from sqlalchemy.orm import sessionmaker, declarative_base
+# pyrefly: ignore [missing-import]
 from dotenv import load_dotenv
 
 # Load local environment variables if available (.env in workspace root or backend)
@@ -8,12 +12,27 @@ load_dotenv()
 
 DATABASE_URL = os.environ.get("DATABASE_URL", "postgresql://admin:admin@localhost:5432/jobfinder")
 
-print(f"Connecting to database at: {DATABASE_URL}")
+engine = create_engine(DATABASE_URL)
 
-try:
-    engine = create_engine(DATABASE_URL)
-    with engine.connect() as conn:
-        print("Connected!")
-except Exception as e:
-    print(f"Database connection failed: {e}")
-    print("Ensure that your Docker containers are running (docker compose up -d) and accessible.")
+SessionLocal = sessionmaker(
+    autocommit=False,
+    autoflush=False,
+    bind=engine
+)
+
+Base = declarative_base()
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+if __name__ == "__main__":
+    print(f"Testing connection to database at: {DATABASE_URL}")
+    try:
+        with engine.connect() as conn:
+            print("Successfully connected to the database!")
+    except Exception as e:
+        print(f"Database connection failed: {e}")
