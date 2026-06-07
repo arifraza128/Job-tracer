@@ -1,0 +1,112 @@
+# ==========================================
+# Secrets and Local Environment Files
+# ==========================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*
+*.pem
+*.key
+*.cert
+*.pfx
+secrets/
+credentials/
+auth/certs/
+
+# ==========================================
+# Python Artifacts & Environments
+# ==========================================
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+*.venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+bin/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Testing, type checking, linting caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+.ipynb_checkpoints
+
+# ==========================================
+# Node.js / Frontend Artifacts
+# ==========================================
+node_modules/
+.next/
+out/
+build/
+dist/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+.npm
+.yarn
+.pnpm-debug.log*
+
+# ==========================================
+# IDEs and Editors
+# ==========================================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.project
+.classpath
+.settings/
+
+# ==========================================
+# Operating System Files
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ==========================================
+# Logs and Temporary Files
+# ==========================================
+*.log
+logs/
+tmp/
+temp/
+*~
+*.swp
